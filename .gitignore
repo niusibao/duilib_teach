@@ -32,3 +32,5 @@
 
 /bin/*.dll
 /bin/*.exe
+/QQLogin/Debug
+/packages
