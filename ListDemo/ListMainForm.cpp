@@ -114,7 +114,6 @@ DWORD WINAPI ListMainForm::Search(LPVOID lpParameter)
 
 void ListMainForm::OnSearch()
 {
-
 	struct Prama *prama = new Prama;
 
 	CListUI* pList = static_cast<CListUI*>(m_pm.FindControl(_T("domainlist"))); //提问： 此处可以如何优化？

@@ -1,2 +1,13 @@
-﻿  CUserInfo.cpp
-  ListDemo.vcxproj -> D:\Project\git-project\duilib_teach\\bin\ListDemo.exe
+﻿  ListMainForm.cpp
+ListMainForm.cpp(150): warning C4996: '_swprintf': swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS.
+          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\wchar.h(784) : 参见“_swprintf”的声明
+ListMainForm.cpp(159): warning C4996: '_swprintf': swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS.
+          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\wchar.h(784) : 参见“_swprintf”的声明
+ListMainForm.cpp(173): warning C4996: '_swprintf': swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS.
+          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\wchar.h(784) : 参见“_swprintf”的声明
+  CUserInfo.cpp
+  CUserControler.cpp
+  CStringUtils.cpp
+  CNetUtils.cpp
+  Main.cpp
+  ListDemo.vcxproj -> C:\niu\project_demo\duilib_teach\\bin\ListDemo.exe
