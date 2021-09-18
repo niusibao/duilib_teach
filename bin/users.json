@@ -3,5 +3,10 @@
       "autoLogin" : true,
       "password" : "111111",
       "username" : "niusibao"
+   },
+   {
+      "autoLogin" : true,
+      "password" : "123456",
+      "username" : "sibao"
    }
 ]

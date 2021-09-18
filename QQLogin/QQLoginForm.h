@@ -40,8 +40,7 @@ struct LoginUser {
 class QQLoginForm : public CWindowWnd, public INotifyUI
 {
 public:
-	QQLoginForm() {
-	};
+	QQLoginForm();
 
 	/*** 系统消息 ***/
 	UINT GetClassStyle() const;
@@ -95,7 +94,9 @@ private:
 	//自动登录
 	CCheckBoxUI* m_pAutoLogin;
 	//用户列表
-	vector<LoginUser*>* m_pUserList;
+	vector<LoginUser> m_pLoginUserList;
+	//用户map
+	map<string, LoginUser> m_pLoginUserMap;
 	//最小排序值
 	int m_pMinSort;
 

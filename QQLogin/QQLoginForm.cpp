@@ -35,7 +35,13 @@ void QQLoginForm::OnFinalMessage(HWND /*hWnd*/) {
 	//delete this;
 }
 
+QQLoginForm::QQLoginForm() {
+	//m_pUserList = new vector<LoginUser*>();
+	//m_pUserMap = new map<string, LoginUser*>();
+}
+
 void QQLoginForm::Init() {
+
 	m_pMinBtn = static_cast<CButtonUI*>(m_pm.FindControl(_T("btn_min")));
 	m_pCloseBtn = static_cast<CButtonUI*>(m_pm.FindControl(_T("btn_close")));
 	m_pLoginBtn = static_cast<CButtonUI*>(m_pm.FindControl(_T("btn_login")));
@@ -56,7 +62,6 @@ inline bool file_exists(const std::string& name) {
 string QQLoginForm::m_pUserFile = "users.json";
 
 void QQLoginForm::InitUsers() {
-	m_pUserList = new vector<LoginUser*>();
 
 	if (file_exists(m_pUserFile)) {
 		Json::Value root;
@@ -70,18 +75,23 @@ void QQLoginForm::InitUsers() {
 
 			for (int i = 0;i < root.size();i++) {
 				Json::Value user = root[i];
-				LoginUser* loginUser = new LoginUser();
-				loginUser->username = user["username"].asString();
-				loginUser->password = user["password"].asString();
-				loginUser->autoLogin = user["autoLogin"].asBool();
-				loginUser->sort = i;
+				LoginUser loginUser;
+				loginUser.username = user["username"].asString();
+				loginUser.password = user["password"].asString();
+				loginUser.autoLogin = user["autoLogin"].asBool();
+				loginUser.sort = i;
 
-				this->m_pUserList->push_back(loginUser);
+				//this->m_pUserList->push_back(loginUser);
+				//this->m_pUserMap->insert(this->m_pUserMap->end(), pair<string, LoginUser*>(loginUser->username, loginUser));
+
+				m_pLoginUserList.push_back(loginUser);
+				m_pLoginUserMap[loginUser.username] = loginUser;
+
 				if (i == 0) {
-					m_pUserNameUI->SetText(loginUser->username.data());
-					m_pPasswordUI->SetText(loginUser->password.data());
-					m_pAutoLogin->SetCheck(loginUser->autoLogin);
-					if (!loginUser->password.empty()) {
+					m_pUserNameUI->SetText(loginUser.username.data());
+					m_pPasswordUI->SetText(loginUser.password.data());
+					m_pAutoLogin->SetCheck(loginUser.autoLogin);
+					if (!loginUser.password.empty()) {
 						m_pSavePassword->SetCheck(true);
 					}
 				}
@@ -96,17 +106,13 @@ void QQLoginForm::SaveUsers() {
 	CDuiString username = m_pUserNameUI->GetText();
 	CDuiString password = m_pPasswordUI->GetText();
 
-	LoginUser* currentUser = 0L;
+	LoginUser currentUser = this->m_pLoginUserMap[username.GetData()];
 
-	for (int i = 0;i < m_pUserList->size();i++) {
-		if (lstrcmp(m_pUserList->at(i)->username.c_str(), username.GetData())==0) {
-			currentUser = m_pUserList->at(i);
-		}
-	}
-
-	if (currentUser == 0) {
-		currentUser = new LoginUser();
-	}
+	//for (int i = 0;i < m_pUserList->size();i++) {
+	//	if (lstrcmp(m_pUserList->at(i)->username.c_str(), username.GetData()) == 0) {
+	//		currentUser = m_pUserList->at(i);
+	//	}
+	//}
 
 	Json::Value userObj;
 	userObj["username"] = username.GetData();
@@ -116,22 +122,20 @@ void QQLoginForm::SaveUsers() {
 	userObj["autoLogin"] = m_pAutoLogin->GetCheck();
 	root.append(userObj);
 
-	for (int i = 0;i < m_pUserList->size();i++) {
-		LoginUser* user = m_pUserList->at(i);
-		if ((long)user == (long)currentUser) {
+	for (int i = 0;i < m_pLoginUserList.size();i++) {
+		LoginUser user = m_pLoginUserList[i];
+		if (strcmp(user.username.c_str(), currentUser.username.c_str()) == 0) {
 			continue;
 		}
 		Json::Value userObj;
-		userObj["username"] = user->username;
-		userObj["password"] = user->password;
-		userObj["autoLogin"] = user->autoLogin;
+		userObj["username"] = user.username;
+		userObj["password"] = user.password;
+		userObj["autoLogin"] = user.autoLogin;
 		root.append(userObj);
-		delete user;
 	}
 
-	delete currentUser;
-
-	m_pUserList->clear();
+	m_pLoginUserList.clear();
+	m_pLoginUserMap.clear();
 
 	Json::StyledWriter sw;
 
@@ -386,7 +390,8 @@ LRESULT QQLoginForm::OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHan
 	bHandled = TRUE;
 	ShowWindow(true);
 	this->FreeParam();
-	delete m_pUserList;
+	//delete m_pUserList;
+	//delete m_pUserMap;
 	DestroyWindow(this->m_hWnd);
 	return 0;
 }
