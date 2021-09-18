@@ -32,9 +32,9 @@
 				<Control height="10" />
 				<HorizontalLayout>
 
-					<CheckBox text="自动登录" height="18" width="80" padding="6,0,0,0"/>
+					<CheckBox name="check_box_auto_login" text="自动登录" height="18" width="80" padding="6,0,0,0"/>
 					<Control width="20" />
-					<CheckBox text="记住密码" height="18" width="80" />
+					<CheckBox name="check_box_save_password" text="记住密码" height="18" width="80" />
 					<Control />
 					<Text text="找回密码" padding="0,3,0,0" textcolor="#FFAAAAAA" width="55" />
 				</HorizontalLayout>

@@ -1,14 +1,2 @@
-﻿  UIMicroBlog.cpp
-  UIListCommonDefine.cpp
-  UIGroups.cpp
-  UIFriends.cpp
-  StdAfx.cpp
-  main_frame.cpp
-  main.cpp
-  debug.cpp
-  color_skin.cpp
-  ColorPicker.cpp
-  chat_dialog.cpp
-  XUnzip.cpp
-  正在生成代码...
-  QQDemo.vcxproj -> C:\niu\project_demo\duilib_teach\\bin\QQDemo.exe
+﻿QQDemo.rc(10): fatal error RC1015: cannot open include file 'afxres.h'.
+  

@@ -4,14 +4,6 @@
 //#include "httplib.h"
 #include "string_util.h"
 
-#include <objbase.h>   //思考此处为何把#include分段
-#include <zmouse.h>
-#include <exdisp.h>
-#include <comdef.h>
-#include <vector>
-#include <sstream>
-#include <curl/curl.h>
-#include <json/json.h>
 
 using namespace DuiLib;
 
@@ -39,7 +31,8 @@ UINT QQLoginForm::GetClassStyle() const
 };
 
 void QQLoginForm::OnFinalMessage(HWND /*hWnd*/) {
-	delete this;
+	::PostQuitMessage(0L);
+	//delete this;
 }
 
 void QQLoginForm::Init() {
@@ -48,8 +41,94 @@ void QQLoginForm::Init() {
 	m_pLoginBtn = static_cast<CButtonUI*>(m_pm.FindControl(_T("btn_login")));
 	m_pUserNameUI = static_cast<CEditUI*>(m_pm.FindControl(_T("input_username")));
 	m_pPasswordUI = static_cast<CEditUI*>(m_pm.FindControl(_T("input_password")));
+	m_pAutoLogin = static_cast<CCheckBoxUI*>(m_pm.FindControl(_T("check_box_auto_login")));
+	m_pSavePassword = static_cast<CCheckBoxUI*>(m_pm.FindControl(_T("check_box_save_password")));
+
+
+	this->InitUsers();
 }
 
+inline bool file_exists(const std::string& name) {
+	ifstream f(name.c_str());
+	return f.good();
+}
+
+string QQLoginForm::m_pUserFile = "users.json";
+
+void QQLoginForm::InitUsers() {
+
+	if (file_exists(m_pUserFile)) {
+		Json::Value root;
+		Json::Reader reader;
+
+		std::ifstream config_doc(m_pUserFile, std::ifstream::binary);
+		reader.parse(config_doc, root);
+		config_doc.close();
+
+		if (root.isArray()) {
+			for (int i = 0;i < root.size();i++) {
+				Json::Value user = root[i];
+				LoginUser* loginUser = new LoginUser();
+				loginUser->username = user["username"].asString();
+				loginUser->password = user["password"].asString();
+				loginUser->autoLogin = user["autoLogin"].asBool();
+				loginUser->sort = i;
+
+				this->m_pUserList.push_back(loginUser);
+				this->m_pUserMap[loginUser->username] = loginUser;
+			}
+		}
+	}
+}
+
+void QQLoginForm::SaveUsers() {
+	Json::Value root;
+
+	CDuiString username = m_pUserNameUI->GetText();
+	CDuiString password = m_pPasswordUI->GetText();
+
+	LoginUser* currentUser = m_pUserMap.at(username.GetData());
+
+	if (!currentUser) {
+		currentUser = new LoginUser();
+	}
+
+	Json::Value userObj;
+	userObj["username"] = username.GetData();
+	if (m_pSavePassword->GetCheck()) {
+		userObj["password"] = password.GetData();
+	}
+	userObj["autoLogin"] = m_pAutoLogin->GetCheck();
+	root.append(userObj);
+
+	for (int i = 0;i < m_pUserList.size();i++) {
+		LoginUser* user = m_pUserList[i];
+		if (user == currentUser) {
+			continue;
+		}
+		Json::Value userObj;
+		userObj["username"] = user->username;
+		userObj["password"] = user->password;
+		userObj["autoLogin"] = user->autoLogin;
+		root.append(userObj);
+		delete user;
+	}
+	
+	delete currentUser;
+
+	m_pUserList.clear();
+	m_pUserMap.clear();
+
+	Json::StyledWriter sw;
+
+	//输出到文件
+	ofstream os;
+	os.open(m_pUserFile);
+	os << sw.write(root);
+	os.close();
+
+	this->InitUsers();
+}
 
 int HttpGetCallback(char* data, size_t size, size_t nmemb, string* result)
 {
@@ -111,7 +190,7 @@ DWORD WINAPI QQLoginForm::httpLogin(LPVOID params)
 	return 0;
 }
 
-void QQLoginForm::toLogin() {
+void QQLoginForm::ToLogin() {
 	m_pLoginBtn->SetEnabled(false);
 
 	CDuiString username = m_pUserNameUI->GetText();
@@ -165,13 +244,13 @@ void QQLoginForm::Notify(TNotifyUI& msg) {
 void QQLoginForm::OnClick(TNotifyUI& msg) {
 	if (msg.pSender == m_pCloseBtn)
 	{
-		PostQuitMessage(0);
+		this->Close();
 	}
 	else if (msg.pSender == m_pMinBtn) {
 		SendMessage(WM_SYSCOMMAND, SC_MINIMIZE, 0);
 	}
 	else if (msg.pSender == m_pLoginBtn) {
-		this->toLogin();
+		this->ToLogin();
 	}
 }
 
@@ -242,6 +321,7 @@ LRESULT QQLoginForm::OnLoginResult(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL
 		if (code == 1) {
 			string tips = root["username"].asString() + "，欢迎登录";
 			MessageBox(this->GetHWND(), _T(tips.data()), _T("登录成功"), MB_OK);
+			this->SaveUsers();
 		}
 		//登录失败
 		else {
@@ -291,6 +371,8 @@ LRESULT QQLoginForm::OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHan
 	//注意触发顺序，OnClose OnDestroy OnFinalMessage
 	bHandled = TRUE;
 	ShowWindow(true);
+	this->FreeParam();
+	DestroyWindow(this->m_hWnd);
 	return 0;
 }
 
@@ -422,4 +504,8 @@ LRESULT  QQLoginForm::OnSysCommand(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL
 		}
 	}
 	return lRes;
+}
+
+void QQLoginForm::FreeParam() {
+	int i = 0;
 }

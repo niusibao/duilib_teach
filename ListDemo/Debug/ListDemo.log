@@ -1,13 +1,29 @@
-﻿  ListMainForm.cpp
-ListMainForm.cpp(150): warning C4996: '_swprintf': swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS.
-          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\wchar.h(784) : 参见“_swprintf”的声明
-ListMainForm.cpp(159): warning C4996: '_swprintf': swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS.
-          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\wchar.h(784) : 参见“_swprintf”的声明
-ListMainForm.cpp(173): warning C4996: '_swprintf': swprintf has been changed to conform with the ISO C standard, adding an extra character count parameter. To use traditional Microsoft swprintf, set _CRT_NON_CONFORMING_SWPRINTFS.
-          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\include\wchar.h(784) : 参见“_swprintf”的声明
-  CUserInfo.cpp
-  CUserControler.cpp
-  CStringUtils.cpp
-  CNetUtils.cpp
-  Main.cpp
-  ListDemo.vcxproj -> C:\niu\project_demo\duilib_teach\\bin\ListDemo.exe
+﻿ListMainForm.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: __thiscall DuiLib::STRINGorID::STRINGorID(wchar_t const *)" (__imp_??0STRINGorID@DuiLib@@QAE@PB_W@Z)，该符号在函数 __catch$?Search@ListMainForm@@SGKPAX@Z$0 中被引用
+ListMainForm.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: __thiscall DuiLib::CDuiString::CDuiString(wchar_t const *,int)" (__imp_??0CDuiString@DuiLib@@QAE@PB_WH@Z)，该符号在函数 "public: class DuiLib::CDuiString __thiscall ListMainForm::GetSkinFolder(void)" (?GetSkinFolder@ListMainForm@@QAE?AVCDuiString@DuiLib@@XZ) 中被引用
+ListMainForm.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: wchar_t const * __thiscall DuiLib::CDuiString::GetData(void)const " (__imp_?GetData@CDuiString@DuiLib@@QBEPB_WXZ)，该符号在函数 __catch$?Search@ListMainForm@@SGKPAX@Z$0 中被引用
+ListMainForm.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: __thiscall DuiLib::CDuiString::operator wchar_t const *(void)const " (__imp_??BCDuiString@DuiLib@@QBEPB_WXZ)，该符号在函数 __catch$?Search@ListMainForm@@SGKPAX@Z$0 中被引用
+ListMainForm.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: bool __thiscall DuiLib::CDuiString::operator==(wchar_t const *)const " (__imp_??8CDuiString@DuiLib@@QBE_NPB_W@Z)，该符号在函数 __catch$?Search@ListMainForm@@SGKPAX@Z$0 中被引用
+ListMainForm.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: bool __thiscall DuiLib::CDuiString::operator!=(wchar_t const *)const " (__imp_??9CDuiString@DuiLib@@QBE_NPB_W@Z)，该符号在函数 __catch$?Search@ListMainForm@@SGKPAX@Z$0 中被引用
+ListMainForm.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: void __thiscall DuiLib::CPaintManagerUI::Init(struct HWND__ *,wchar_t const *)" (__imp_?Init@CPaintManagerUI@DuiLib@@QAEXPAUHWND__@@PB_W@Z)，该符号在函数 __catch$?Search@ListMainForm@@SGKPAX@Z$0 中被引用
+ListMainForm.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: static void __cdecl DuiLib::CPaintManagerUI::SetResourcePath(wchar_t const *)" (__imp_?SetResourcePath@CPaintManagerUI@DuiLib@@SAXPB_W@Z)，该符号在函数 __catch$?Search@ListMainForm@@SGKPAX@Z$0 中被引用
+ListMainForm.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: void __thiscall DuiLib::CPaintManagerUI::SendNotify(class DuiLib::CControlUI *,wchar_t const *,unsigned int,long,bool,bool)" (__imp_?SendNotify@CPaintManagerUI@DuiLib@@QAEXPAVCControlUI@2@PB_WIJ_N2@Z)，该符号在函数 "public: virtual void __thiscall CMenuWnd::Notify(struct DuiLib::tagTNotifyUI &)" (?Notify@CMenuWnd@@UAEXAAUtagTNotifyUI@DuiLib@@@Z) 中被引用
+ListMainForm.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: class DuiLib::CControlUI * __thiscall DuiLib::CPaintManagerUI::FindControl(wchar_t const *)const " (__imp_?FindControl@CPaintManagerUI@DuiLib@@QBEPAVCControlUI@2@PB_W@Z)，该符号在函数 __catch$?Search@ListMainForm@@SGKPAX@Z$0 中被引用
+ListMainForm.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) void __cdecl DuiLib::DUI__Trace(wchar_t const *,...)" (__imp_?DUI__Trace@DuiLib@@YAXPB_WZZ)，该符号在函数 __catch$?Search@ListMainForm@@SGKPAX@Z$0 中被引用
+ListMainForm.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: struct HWND__ * __thiscall DuiLib::CWindowWnd::Create(struct HWND__ *,wchar_t const *,unsigned long,unsigned long,int,int,int,int,struct HMENU__ *)" (__imp_?Create@CWindowWnd@DuiLib@@QAEPAUHWND__@@PAU3@PB_WKKHHHHPAUHMENU__@@@Z)，该符号在函数 "public: struct HWND__ * __thiscall CMenuWnd::Create(struct HWND__ *,wchar_t const *,unsigned long,unsigned long,int,int,int,int,struct HMENU__ *)" (?Create@CMenuWnd@@QAEPAUHWND__@@PAU2@PB_WKKHHHHPAUHMENU__@@@Z) 中被引用
+Main.obj : error LNK2001: 无法解析的外部符号 "__declspec(dllimport) public: struct HWND__ * __thiscall DuiLib::CWindowWnd::Create(struct HWND__ *,wchar_t const *,unsigned long,unsigned long,int,int,int,int,struct HMENU__ *)" (__imp_?Create@CWindowWnd@DuiLib@@QAEPAUHWND__@@PAU3@PB_WKKHHHHPAUHMENU__@@@Z)
+ListMainForm.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: long __thiscall DuiLib::CWindowWnd::SendMessageW(unsigned int,unsigned int,long)" (__imp_?SendMessageW@CWindowWnd@DuiLib@@QAEJIIJ@Z)，该符号在函数 __catch$?Search@ListMainForm@@SGKPAX@Z$0 中被引用
+ListMainForm.obj : error LNK2019: 无法解析的外部符号 "__declspec(dllimport) public: class DuiLib::CControlUI * __thiscall DuiLib::CDialogBuilder::Create(class DuiLib::STRINGorID,wchar_t const *,class DuiLib::IDialogBuilderCallback *,class DuiLib::CPaintManagerUI *,class DuiLib::CControlUI *)" (__imp_?Create@CDialogBuilder@DuiLib@@QAEPAVCControlUI@2@VSTRINGorID@2@PB_WPAVIDialogBuilderCallback@2@PAVCPaintManagerUI@2@PAV32@@Z)，该符号在函数 __catch$?Search@ListMainForm@@SGKPAX@Z$0 中被引用
+ListMainForm.obj : error LNK2001: 无法解析的外部符号 "public: virtual class DuiLib::CDuiString __thiscall DuiLib::CControlUI::GetAttribute(wchar_t const *)" (?GetAttribute@CControlUI@DuiLib@@UAE?AVCDuiString@2@PB_W@Z)
+ListMainForm.obj : error LNK2001: 无法解析的外部符号 "public: virtual wchar_t const * __thiscall DuiLib::CListTextElementUI::GetClass(void)const " (?GetClass@CListTextElementUI@DuiLib@@UBEPB_WXZ)
+ListMainForm.obj : error LNK2001: 无法解析的外部符号 "public: virtual void * __thiscall DuiLib::CListTextElementUI::GetInterface(wchar_t const *)" (?GetInterface@CListTextElementUI@DuiLib@@UAEPAXPB_W@Z)
+ListMainForm.obj : error LNK2001: 无法解析的外部符号 "public: virtual wchar_t __thiscall DuiLib::CControlUI::GetShortcut(void)const " (?GetShortcut@CControlUI@DuiLib@@UBE_WXZ)
+ListMainForm.obj : error LNK2001: 无法解析的外部符号 "protected: virtual wchar_t const * __thiscall DuiLib::CWindowWnd::GetSuperClassName(void)const " (?GetSuperClassName@CWindowWnd@DuiLib@@MBEPB_WXZ)
+Main.obj : error LNK2001: 无法解析的外部符号 "protected: virtual wchar_t const * __thiscall DuiLib::CWindowWnd::GetSuperClassName(void)const " (?GetSuperClassName@CWindowWnd@DuiLib@@MBEPB_WXZ)
+ListMainForm.obj : error LNK2001: 无法解析的外部符号 "public: virtual void __thiscall DuiLib::CListElementUI::SetAttribute(wchar_t const *,wchar_t const *)" (?SetAttribute@CListElementUI@DuiLib@@UAEXPB_W0@Z)
+ListMainForm.obj : error LNK2001: 无法解析的外部符号 "public: virtual void __thiscall DuiLib::CControlUI::SetAttributeList(wchar_t const *)" (?SetAttributeList@CControlUI@DuiLib@@UAEXPB_W@Z)
+ListMainForm.obj : error LNK2001: 无法解析的外部符号 "public: virtual void __thiscall DuiLib::CControlUI::SetName(wchar_t const *)" (?SetName@CControlUI@DuiLib@@UAEXPB_W@Z)
+ListMainForm.obj : error LNK2001: 无法解析的外部符号 "public: virtual void __thiscall DuiLib::CControlUI::SetShortcut(wchar_t)" (?SetShortcut@CControlUI@DuiLib@@UAEX_W@Z)
+ListMainForm.obj : error LNK2001: 无法解析的外部符号 "public: virtual void __thiscall DuiLib::CListLabelElementUI::SetText(wchar_t const *)" (?SetText@CListLabelElementUI@DuiLib@@UAEXPB_W@Z)
+ListMainForm.obj : error LNK2001: 无法解析的外部符号 "public: virtual void __thiscall DuiLib::CControlUI::SetToolTip(wchar_t const *)" (?SetToolTip@CControlUI@DuiLib@@UAEXPB_W@Z)
+ListMainForm.obj : error LNK2001: 无法解析的外部符号 "public: virtual void __thiscall DuiLib::CControlUI::SetUserData(wchar_t const *)" (?SetUserData@CControlUI@DuiLib@@UAEXPB_W@Z)
+../bin/ListDemo.exe : fatal error LNK1120: 26 个无法解析的外部命令

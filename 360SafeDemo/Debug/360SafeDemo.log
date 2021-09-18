@@ -1,3 +1,6 @@
-﻿  StdAfx.cpp
+﻿cl : 命令行 warning D9035: “Gm”选项已否决，并将在将来的版本中移除
+  StdAfx.cpp
+C:\niu\project_demo\duilib_teach\DuiLib\Core\UIManager.h(45,2): warning C4091: “typedef ”: 没有声明变量时忽略“DuiLib::EVENTTYPE_UI”的左侧
+cl : 命令行 warning D9035: “Gm”选项已否决，并将在将来的版本中移除
   360Safe.cpp
-  360SafeDemo.vcxproj -> C:\niu\project_demo\duilib_teach\\bin\360Safe.exe
+  360SafeDemo.vcxproj -> C:\niu\project_demo\duilib_teach\bin\360Safe.exe
