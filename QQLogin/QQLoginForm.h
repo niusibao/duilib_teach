@@ -94,10 +94,8 @@ private:
 	CCheckBoxUI* m_pSavePassword;
 	//自动登录
 	CCheckBoxUI* m_pAutoLogin;
-	//用户json
-	map<string, LoginUser*> m_pUserMap;
 	//用户列表
-	vector<LoginUser*> m_pUserList;
+	vector<LoginUser*>* m_pUserList;
 	//最小排序值
 	int m_pMinSort;
 

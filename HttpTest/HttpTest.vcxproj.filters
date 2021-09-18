@@ -13,49 +13,42 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Window">
-      <UniqueIdentifier>{bcebf835-4461-4623-aa47-b8b6035dd1da}</UniqueIdentifier>
+    <Filter Include="include">
+      <UniqueIdentifier>{66343e14-0b27-473a-b9d8-8c909406ffe8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="QQLogin.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="QQLoginForm.cpp">
-      <Filter>Window</Filter>
-    </ClCompile>
-    <ClCompile Include="CircleImageUI.cpp">
+    <ClCompile Include="HttpTest.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="QQLoginForm.h">
-      <Filter>Window</Filter>
+    <ClInclude Include="include\curl.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="StdAfx.h">
-      <Filter>源文件</Filter>
+    <ClInclude Include="include\curlbuild.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="include\curlrules.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="CircleImageUI.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="include\curlver.h">
+      <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="string_util.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="include\easy.h">
+      <Filter>include</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="QQLogin.rc">
-      <Filter>资源文件</Filter>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\bin\Icon\favicon.ico">
-      <Filter>资源文件</Filter>
-    </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+    <ClInclude Include="include\mprintf.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\multi.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\stdcheaders.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\typecheck-gcc.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
