@@ -13,52 +13,46 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Window">
-      <UniqueIdentifier>{bcebf835-4461-4623-aa47-b8b6035dd1da}</UniqueIdentifier>
+    <Filter Include="window">
+      <UniqueIdentifier>{d3c9690a-2717-4514-a9ac-2394e8a00fb9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="QQLogin.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="QQLoginForm.cpp">
-      <Filter>Window</Filter>
-    </ClCompile>
-    <ClCompile Include="CircleImageUI.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="string_util.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="QQLoginForm.h">
-      <Filter>Window</Filter>
-    </ClInclude>
-    <ClInclude Include="StdAfx.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="resource.h">
+    <ClInclude Include="framework.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="CircleImageUI.h">
+    <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="string_util.h">
+    <ClInclude Include="Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PhotoResolution.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ResolutionListDialog.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="QQLogin.rc">
+    <ClCompile Include="PhotoResolution.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ResolutionListDialog.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PhotoResolution.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\bin\Icon\favicon.ico">
+    <Image Include="small.ico">
       <Filter>资源文件</Filter>
     </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+    <Image Include="PhotoResolution.ico">
+      <Filter>资源文件</Filter>
+    </Image>
   </ItemGroup>
 </Project>

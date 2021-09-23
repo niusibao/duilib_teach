@@ -7,7 +7,6 @@
 #include "include\curl.h"
 #include <tchar.h>
 
-
 using namespace std;
 
 string UtfToGbk(const char* utf8)
