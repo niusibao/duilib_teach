@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Window size="200,300" sizebox="0,0,0,0" roundcorner="12,12">
     <Font id="1" name="宋体" size="20" bold="true" />
+	 
     <!--自动拉伸的控件演示-->
     <Container bordersize="1" bordercolor="0xFFFFFFFF" inset="1,1,1,1">
-        <VerticalLayout name="img_size_list" bkcolor="#FFFFFF00" roundcorner="4,4">
+        <VerticalLayout vscrollbar="true" name="img_size_list" bkcolor="#FFFFFF00" roundcorner="4,4">
             
         </VerticalLayout>
     </Container>

@@ -44,15 +44,26 @@ string httpGet(const string& url) {
 	return response;
 }
 
-void httpGetThread(const string url, function<int(string)> const& callback) {
-	string response = httpGet(url);
-	callback(response);
+DWORD WINAPI httpGetThread(LPVOID param) {
+	HttpParams* params = (HttpParams*)param;
+	//const string url, function<int(string)> const& callback
+	//this_thread::sleep_for(std::chrono::milliseconds(1000));
+	string response = httpGet(params->url);
+	params->callback(response);
+	delete params;
+	return 0;
 }
 
-void httpGet(const string url, function<int(string)> const &callback) {
-	std::thread t(httpGetThread, url, callback);
+void httpGet(const string& url, const function<int(string)> const& callback) {
+	DWORD dwThreadID = 0;
+	HttpParams* param = new HttpParams(url, callback);
 
-	t.join();
+	//开启线程调用接口登录
+	HANDLE hThread = CreateThread(NULL, 0, &httpGetThread, (LPVOID)param, 0, &dwThreadID);
+
+	//std::thread t(httpGetThread, url, callback);
+
+	//t.join();
 }
 
 size_t HttpPostCallback(void* ptr, size_t size, size_t nmemb, void* stream)

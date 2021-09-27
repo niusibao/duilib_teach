@@ -24,7 +24,7 @@ private:
 
 	void Init();
 
-	CControlUI* CreateImgItem(string name, int i);
+	CControlUI* CreateImgItem(const string& name, int i);
 	void CreateImgList();
 
 

@@ -117,6 +117,9 @@ void ResolutionListDialog::Init() {
 	nameList.push_back("1920*1080");
 	nameList.push_back("1280*960");
 	nameList.push_back("960*540");
+	nameList.push_back("960*540");
+	nameList.push_back("960*540");
+	nameList.push_back("960*540");
 
 	m_pButtonHeight = 50;
 	m_pButtonWidth = 170;
@@ -125,7 +128,7 @@ void ResolutionListDialog::Init() {
 	CreateImgList();
 }
 
-CControlUI* ResolutionListDialog::CreateImgItem(string name, int i) {
+CControlUI* ResolutionListDialog::CreateImgItem(const string& name, int i) {
 	//ˮƽlayout
 	CHorizontalLayoutUI* layout = new CHorizontalLayoutUI;
 	layout->SetFixedHeight(m_pButtonHeight + m_pMargin);
@@ -168,5 +171,5 @@ void ResolutionListDialog::CreateImgList() {
 		iterator++;
 		i++;
 	}
-	ResizeClient(m_pButtonWidth + 2 * m_pMargin, (m_pButtonHeight + m_pMargin) * nameList.size());
+	//ResizeClient(m_pButtonWidth + 2 * m_pMargin, (m_pButtonHeight + m_pMargin) * 2.5);
 }
